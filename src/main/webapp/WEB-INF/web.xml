@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<web-app> xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http//http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsb"
+         version="3.1">
+
+    <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>FirstServlet</servlet-name>
+        <servlet-class>yasko.ukr.FirstServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FirstServlet</servlet-name>
+        <url-pattern>/Hello</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+    <servlet-name>firstJsp</servlet-name>
+    <jsp-file>/firstJsp.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+    <servlet-name>firstJsp</servlet-name>
+    <url-pattern>/firs</url-pattern>
+    </servlet-mapping>
+
+</web-app>
