@@ -7,7 +7,9 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 4360230000669918234L;
     private int id;
+
     private String firstName;
+
     private String lastName;
     private String email;
     private String phone;
@@ -15,7 +17,6 @@ public class User implements Serializable {
     private String login;
     private String password;
     private int roleId;
-
     public User() {
     }
 
@@ -89,5 +90,19 @@ public class User implements Serializable {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
+    }
+
+    @Override
+    public String toString() {
+        return "User { " +
+                "id = " + id +
+                ", firstName = '" + firstName + '\'' +
+                ", lastName = '" + lastName + '\'' +
+                ", email = '" + email + '\'' +
+                ", phone = '" + phone + '\'' +
+                ", balance = " + balance +
+                ", login = '" + login + '\'' +
+                ", roleId = " + roleId +
+                '}';
     }
 }

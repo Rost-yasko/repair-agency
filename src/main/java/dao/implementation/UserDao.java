@@ -38,14 +38,14 @@ public class UserDao implements IUserDao {
     public List<User> getAll() {
 
         List<User> userList = new ArrayList<>();
-        String sql = "SELECT id, first_name, last_name, email, phone, balance, login, password, role_id ";
+        String sql = "SELECT id, first_name, last_name, email, phone, balance, login, password, role_id from users ";
         try (Statement statement = poolConnection.getConnection().createStatement();
              ResultSet resultSet = statement.executeQuery(sql)) {
             while (resultSet.next()) {
                 userList.add(extractUser(resultSet));
             }
         } catch (SQLException e) {
-            throw new RuntimeException(" Can't get users from DataBase ");
+            throw new RuntimeException(" Can't get users from DataBase ", e);
         }
         return userList;
     }
@@ -53,7 +53,7 @@ public class UserDao implements IUserDao {
     @Override
     public User getById(int id) {
 
-        String sql = "SELECT id, first_name, last_name, email, phone, balance, login, password, role_id where id = ?";
+        String sql = "SELECT id, first_name, last_name, email, phone, balance, login, password, role_id from users where id = ?";
         try (PreparedStatement preparedStatement = poolConnection.getConnection().prepareStatement(sql)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -63,6 +63,7 @@ public class UserDao implements IUserDao {
         }
 
     }
+
     private User extractUser(ResultSet resultSet) throws SQLException {
         User user = new User();
         user.setId(resultSet.getInt("id"));
@@ -74,6 +75,7 @@ public class UserDao implements IUserDao {
         user.setLogin(resultSet.getString("login"));
         user.setPassword(resultSet.getString("password"));
         user.setRoleId(resultSet.getInt("role_id"));
+
         return user;
     }
 

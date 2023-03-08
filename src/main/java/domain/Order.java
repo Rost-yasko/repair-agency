@@ -55,4 +55,15 @@ public class Order implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Order { " +
+                " id = " + id +
+                ", dataOfPosition = " + dataOfPosition +
+                ", completionDate = " + completionDate +
+                ", status = '" + status + '\'' +
+                ", userId = " + userId +
+                '}';
+    }
 }

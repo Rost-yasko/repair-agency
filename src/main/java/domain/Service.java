@@ -74,5 +74,16 @@ public class Service implements Serializable {
         this.price_gold = price_gold;
     }
 
-
+    @Override
+    public String toString() {
+        return "Service{" +
+                "id = " + id +
+                ", name = '" + name + '\'' +
+                ", description = '" + description + '\'' +
+                ", silver = '" + silver + '\'' +
+                ", price_silver = " + price_silver +
+                ", gold = '" + gold + '\'' +
+                ", price_gold = " + price_gold +
+                '}';
+    }
 }
