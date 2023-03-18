@@ -15,22 +15,21 @@ public class UserDao implements IUserDao {
     @Override
     public void create(User user) {
 
-        String sql = "INSERT INTO USERS (id, first_name, last_name, email, phone, balance, login, password, role_id)" +
-                "VALUES (?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO USERS (first_name, last_name, email, phone, balance, login, password, role_id)" +
+                "VALUES (?,?,?,?,?,?,?,?)";
         try (PreparedStatement preparedStatement = poolConnection.getConnection().prepareStatement(sql)) {
-            preparedStatement.setInt(1, user.getId());
-            preparedStatement.setString(2, user.getFirstName());
-            preparedStatement.setString(3, user.getLastName());
-            preparedStatement.setString(4, user.getEmail());
-            preparedStatement.setString(5, user.getPhone());
-            preparedStatement.setBigDecimal(6, user.getBalance());
-            preparedStatement.setString(7, user.getLogin());
-            preparedStatement.setString(8, user.getPassword());
-            preparedStatement.setInt(9, user.getRoleId());
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getLastName());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(4, user.getPhone());
+            preparedStatement.setBigDecimal(5, user.getBalance());
+            preparedStatement.setString(6, user.getLogin());
+            preparedStatement.setString(7, user.getPassword());
+            preparedStatement.setInt(8, user.getRoleId());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            throw new RuntimeException(" Can't create user into DataBase");
+            throw new RuntimeException(" Can't create user into DataBase", e);
         }
     }
 
@@ -57,9 +56,31 @@ public class UserDao implements IUserDao {
         try (PreparedStatement preparedStatement = poolConnection.getConnection().prepareStatement(sql)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-            return extractUser(resultSet);
+            if (resultSet.next()) {
+                return extractUser(resultSet);
+            }
+            return null;
+
         } catch (SQLException e) {
-            throw new RuntimeException(" Can't get user by id from DataBase ");
+            throw new RuntimeException(" Can't get user by id from DataBase ", e);
+        }
+
+    }
+
+    @Override
+    public User getByLogin(String login) {
+
+        String sql = "SELECT id, first_name, last_name, email, phone, balance, login, password, role_id from users where login = ?";
+        try (PreparedStatement preparedStatement = poolConnection.getConnection().prepareStatement(sql)) {
+            preparedStatement.setString(1, login);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return extractUser(resultSet);
+            }
+            return null;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(" Can't get user by Login from DataBase", e);
         }
 
     }
@@ -75,7 +96,6 @@ public class UserDao implements IUserDao {
         user.setLogin(resultSet.getString("login"));
         user.setPassword(resultSet.getString("password"));
         user.setRoleId(resultSet.getInt("role_id"));
-
         return user;
     }
 
