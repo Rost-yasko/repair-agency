@@ -3,7 +3,7 @@ CREATE DATABASE repair_agency;
 
 DROP TABLE IF EXISTS roles CASCADE;
 CREATE TABLE roles(
-id integer NOT NULL PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 name varchar NOT NULL
 );
 
@@ -15,9 +15,9 @@ last_name varchar NOT NULL,
 email varchar NOT NULL,
 phone varchar NOT NULL,
 balance decimal(12,2) NOT NULL,
-login varchar NOT NULL,
+login varchar NOT NULL UNIQUE,
 password varchar NOT NULL,
-role_id integer NOT NULL REFERENCES roles(id)
+role_id integer REFERENCES roles(id)
 );
 
 DROP TABLE IF EXISTS orders CASCADE;
@@ -42,7 +42,7 @@ rating rating NOT NULL
 
 DROP TABLE IF EXISTS services CASCADE;
 CREATE TABLE services(
-id SERIAL PRIMARY KEY,
+id SERIAL NOT NULL PRIMARY KEY,
 name varchar NOT NULL,
 description text,
 silver varchar NOT NULL,
@@ -53,7 +53,7 @@ price_gold decimal(12,2) NOT NULL
 
 DROP TABLE IF EXISTS orders_has_services CASCADE;
 CREATE TABLE orders_has_services(
-id SERIAL PRIMARY KEY,
+id SERIAL NOT NULL PRIMARY KEY,
 price decimal(12,2) NOT NULL,
 service_id integer REFERENCES services(id),
 order_id integer REFERENCES orders(id)

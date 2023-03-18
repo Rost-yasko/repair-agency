@@ -13,4 +13,6 @@ public interface IUserDao {
 
     User getById(int id);
 
+    User getByLogin(String login);
+
 }

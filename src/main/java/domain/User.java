@@ -2,6 +2,7 @@ package domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class User implements Serializable {
 
@@ -104,5 +105,18 @@ public class User implements Serializable {
                 ", login = '" + login + '\'' +
                 ", roleId = " + roleId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(login, user.login);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(login);
     }
 }
