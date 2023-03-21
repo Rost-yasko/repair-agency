@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
@@ -22,7 +21,7 @@ body {
 input[type=text], input[type=password] {
     width: 100%;
     padding: 15px;
-    margin: 5px 0 22px 0;
+    margin: 5px 0 15px 0;
     display: inline-block;
     border: none;
     background: #f1f1f1;
@@ -54,28 +53,22 @@ hr {
     opacity: 1;
 }
 
-/* Add a blue text color to links */
-a {
-    color: dodger blue;
-}
+ p {color: blue;}
+ h3 {color: red;}
+ h1 {color: green;}
 
-}
 </style>
 </head>
-</body>
 
   <div class="container">
 <head>
   <meta charset="UTF-8">
-
-    <title>Add new user</title>
+   <title>Add new user</title>
 </head>
-     <h1>Register</h1>
- <p>Please fill in this form to create an account.</p>
+    <center> <h1>Register</h1> </center>
+ <p> Please fill in this form to create an account.</p>
 <hr></hr>
-
 <h3>${message}</h3>
-
 <form method="post" action="AddUser">
    <label for="FirstName"><b>FirstName</b>
        <input type="text" placeholder="Enter first name" name="firstName" value="${firstName}" required><br />
@@ -107,6 +100,5 @@ a {
         <button input type="submit" class="register" value="Submit">Register</button>
 
 </form>
-</div>
-</head>
+   </div>
 </html>

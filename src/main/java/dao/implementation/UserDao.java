@@ -52,7 +52,8 @@ public class UserDao implements IUserDao {
     @Override
     public User getById(int id) {
 
-        String sql = "SELECT id, first_name, last_name, email, phone, balance, login, password, role_id from users where id = ?";
+        String sql = "SELECT id, first_name, last_name, email, phone, balance, login, password, " +
+                "role_id from users where id = ?";
         try (PreparedStatement preparedStatement = poolConnection.getConnection().prepareStatement(sql)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -70,7 +71,8 @@ public class UserDao implements IUserDao {
     @Override
     public User getByLogin(String login) {
 
-        String sql = "SELECT id, first_name, last_name, email, phone, balance, login, password, role_id from users where login = ?";
+        String sql = "SELECT id, first_name, last_name, email, phone, balance, login, password, " +
+                "role_id from users where login = ?";
         try (PreparedStatement preparedStatement = poolConnection.getConnection().prepareStatement(sql)) {
             preparedStatement.setString(1, login);
             ResultSet resultSet = preparedStatement.executeQuery();

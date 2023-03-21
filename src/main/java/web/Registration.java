@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-public class RegistrationServlet extends HttpServlet {
+public class Registration extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response){
     }
 
