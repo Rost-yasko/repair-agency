@@ -2,7 +2,6 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Full-width input fields */
@@ -29,25 +28,32 @@ button {
 button:hover {
     opacity: 0.8;
 }
+
 .container {
     padding: 16px;
 }
+
+   h1 {color: red;}
+}
 </style>
 
-<body>
+<div class="container">
 <head>
-  <meta charset="UTF-8">
-   <title>Repair-agency</title>
+    <meta charset="UTF-8">
+    <title>login</title>
 </head>
 
-    <div>
-       <center> <h1>Repair-agency</h1> </center>
-    </div>
-       <h1>Authorization</h1>
-    <div>
-    <button onclick="location.href='AddUser'">Registration</button> <br />
-    <button onclick="location.href='Login'">Login</button>
-    </div>
+<h1>${message}</h1>
 
-</body>
+<form method="post" action="Login">
+      <label for="Login"><b>Login</b>
+          <input type="text" placeholder="Enter Login" name="login" value="${Login}" required>
+      </label>
+      <label for="Password"><b>Password</b>
+          <input type="text" placeholder="Enter Password" name="password" value="${Password}" required>
+      </label>
+           <button input type="submit" value="Submit">Login</button>
+
+</from>
+</div>
 </html>

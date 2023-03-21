@@ -6,7 +6,6 @@
 </head>
 <body>
 <h3>Table Users</h3>
-
      <table border ="1">
 <tr>
    <th>id</th>

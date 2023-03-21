@@ -26,8 +26,8 @@ public class AddUser extends HttpServlet {
         String password = request.getParameter("password");
 
         UserDao userDao = new UserDao();
-        if(userDao.getByLogin(login)!=null){
-            request.setAttribute("message","This login is in usage");
+        if (userDao.getByLogin(login) != null) {
+            request.setAttribute("message", "This login is in usage");
             request.setAttribute("firstName", firstName);
             request.setAttribute("lastName", lastName);
             request.setAttribute("email", email);
@@ -48,7 +48,7 @@ public class AddUser extends HttpServlet {
         user.setRoleId(3);
 
         userDao.create(user);
-        request.getRequestDispatcher("/authorization.jsp").forward(request, response);
+        request.getRequestDispatcher("/login.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
