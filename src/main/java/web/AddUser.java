@@ -3,6 +3,7 @@ package web;
 import dao.implementation.UserDao;
 import domain.User;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,14 @@ import java.math.BigDecimal;
 
 
 public class AddUser extends HttpServlet {
+    private static final long serialVersionUID = -3518906220458644609L;
+    private UserDao userDao;
+
+    @Override
+    public void init() {
+        ServletContext context = getServletContext();
+        this.userDao = (UserDao) context.getAttribute("UserDao");
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -25,7 +34,6 @@ public class AddUser extends HttpServlet {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
-        UserDao userDao = new UserDao();
         if (userDao.getByLogin(login) != null) {
             request.setAttribute("message", "This login is in usage");
             request.setAttribute("firstName", firstName);

@@ -1,7 +1,6 @@
 package dao.implementation;
 
 import dao.IUserDao;
-import db.connection.ConnectionBuilder;
 import db.connection.PoolConnection;
 import domain.User;
 
@@ -10,7 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao implements IUserDao {
-    ConnectionBuilder poolConnection = new PoolConnection();
+    private final PoolConnection poolConnection;
+
+    public UserDao(PoolConnection poolConnection) {
+        this.poolConnection = poolConnection;
+    }
 
     @Override
     public void create(User user) {
