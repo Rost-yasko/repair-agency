@@ -5,16 +5,15 @@
                               http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
           version="4.0">
 
-    <display-name>Archetype Created Web Application</display-name>
-
+    <display-name>Repair-agency</display-name>
 
     <servlet>
-        <servlet-name>Registration</servlet-name>
-        <servlet-class>web.Registration</servlet-class>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>web.Login</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Registration</servlet-name>
-        <url-pattern>/register</url-pattern>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -27,22 +26,19 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>web.Login</servlet-class>
+        <servlet-name>HomePage</servlet-name>
+        <servlet-class>web.HomePage</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login</url-pattern>
+        <servlet-name>HomePage</servlet-name>
+        <url-pattern>/homePage</url-pattern>
     </servlet-mapping>
 
+<!--<filter>-->
+<!--    <filter-name>FilterLogin</filter-name>-->
+<!--    <filter-class>filter.AuthenticationFilter</filter-class>-->
 
+<!--</filter>-->
 
-
-
-
-
-    <!--    <welcome-file-list>-->
-<!--        <welcom-file>userTable.jsp</welcom-file>-->
-<!--    </welcome-file-list>-->
 
 </web-app>

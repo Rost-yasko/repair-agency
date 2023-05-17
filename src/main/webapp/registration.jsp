@@ -95,7 +95,7 @@ hr {
    </label>
 
    <label for="Password"><b>Password</b>
-       <input type="text" placeholder="Enter password" name="password" required><br />
+       <input type="password" placeholder="Enter password" name="password" required><br />
    </label>
         <button input type="submit" class="register" value="Submit">Register</button>
 
