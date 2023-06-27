@@ -55,6 +55,7 @@ public class AddUser extends HttpServlet {
         user.setRoleId(3);
 
         userDao.create(user);
+        request.setAttribute("message", "You are successful registered, enter your login and password");
         request.getRequestDispatcher("/login.jsp").forward(request, response);
     }
 

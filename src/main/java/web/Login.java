@@ -20,6 +20,7 @@ public class Login extends HttpServlet {
         ServletContext context = getServletContext();
         this.userDao = (UserDao) context.getAttribute("UserDao");
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String login = request.getParameter("login");
@@ -32,6 +33,8 @@ public class Login extends HttpServlet {
             request.getRequestDispatcher("/homePage.jsp").forward(request, response);
             return;
         }
+        System.out.println("wrong login");
+
         request.setAttribute("message", "Your login or password is incorrect");
         request.setAttribute("Login", login);
         request.setAttribute("Password", password);

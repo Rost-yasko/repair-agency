@@ -26,6 +26,10 @@ public class UsersTable extends HttpServlet {
         request.getRequestDispatcher("/userTable.jsp").forward(request, response);
 
     }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+
+    }
 
 }
 

@@ -2,6 +2,8 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Full-width input fields */
@@ -37,6 +39,17 @@ button:hover {
 }
 </style>
 
+<script>
+function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+
 <div class="container">
 <head>
     <meta charset="UTF-8">
@@ -47,13 +60,17 @@ button:hover {
 
 <form method="post" action="Login">
       <label for="Login"><b>Login</b>
-          <input type="text" placeholder="Enter Login" name="login" value="${Login}" required>
+         <input type="text" placeholder="Enter Login" name="login" value="${Login}" required>
       </label>
       <label for="Password"><b>Password</b>
-          <input type="text" placeholder="Enter Password" name="password" value="${Password}" required>
+          <input type="password" placeholder="Enter Password" name="password" value="${Password}" id="myInput" required>
+          <br><br>
+          <input type="checkbox" onclick="myFunction()">Show Password
       </label>
            <button input type="submit" value="Submit">Login</button>
 
 </from>
 </div>
 </html>
+
+

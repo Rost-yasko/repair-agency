@@ -2,14 +2,10 @@
 <html>
 <head>
   <meta charset="UTF-8">
-    <title>Repair-agency</title>
+    <title>403</title>
 </head>
 <body>
     <div>
-       <center> <h1>Repair-agency</h1> </center>
+       <center> <h1>You do not have access rights</h1> </center>
     </div>
-
-
-
-
 </html>
