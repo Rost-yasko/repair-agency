@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class UsersTable extends HttpServlet {
+    private static final long serialVersionUID = 3944378334894360095L;
     private UserDao userDao;
 
     @Override
@@ -23,6 +24,10 @@ public class UsersTable extends HttpServlet {
 
         request.setAttribute("users", userDao.getAll());
         request.getRequestDispatcher("/userTable.jsp").forward(request, response);
+
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 
     }
 

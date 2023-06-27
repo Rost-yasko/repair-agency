@@ -58,6 +58,19 @@ hr {
  h1 {color: green;}
 
 </style>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+
+
 </head>
 
   <div class="container">
@@ -95,7 +108,8 @@ hr {
    </label>
 
    <label for="Password"><b>Password</b>
-       <input type="text" placeholder="Enter password" name="password" required><br />
+       <input type="password" placeholder="Enter password" name="password" id="myInput" required><br />
+       <input type="checkbox" onclick="myFunction()">Show Password
    </label>
         <button input type="submit" class="register" value="Submit">Register</button>
 

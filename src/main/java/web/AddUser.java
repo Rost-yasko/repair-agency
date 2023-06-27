@@ -25,7 +25,6 @@ public class AddUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
@@ -56,6 +55,7 @@ public class AddUser extends HttpServlet {
         user.setRoleId(3);
 
         userDao.create(user);
+        request.setAttribute("message", "You are successful registered, enter your login and password");
         request.getRequestDispatcher("/login.jsp").forward(request, response);
     }
 
